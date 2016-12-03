@@ -1,0 +1,5 @@
+1. Read CSV sudoku puzzle and solve
+    * currently CSV has values of 0 for blank entries, doesn't support nonblank
+      due to strtok()
+2. Print solution to console, also print time taken to solve
+3. Write solution to new file
