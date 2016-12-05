@@ -3,7 +3,7 @@ import sys
 
 def main():
     if len(sys.argv) != 2:
-        print("Usage: main.py <file.csv>")
+        print("Usage: maingit .py <file.csv>")
         exit(1)
 
     grid = parsePuzzle(sys.argv[1])
