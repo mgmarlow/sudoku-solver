@@ -12,9 +12,8 @@ def solve(grid):
             for col_index in range(len(grid[row_index])):
                 if grid[row_index][col_index] == 0:
                     for new_val in range(1, 10):
-                        val = compare_value(new_val, row_index, col_index, grid)
-                        grid[row_index][col_index] = val
-                        if val != 0:
+                        if only_possible_val(new_val, row_index, col_index, grid):
+                            grid[row_index][col_index] = new_val
                             break
 
         print(solve_count)
@@ -23,16 +22,21 @@ def solve(grid):
 
     return grid
 
+# Returns True if only one integer can go in the given space
+def only_possible_val(test_val, row_index, col_index, grid):
+    #print("{%d, %d, %d}" % (row_index, col_index, val))
+    return 'stub'
+
 # Return True if val (1-9) is valid, false if not
-def compare_value(val, row_index, col_index, grid):
+def proper_value(val, row_index, col_index, grid):
     if val in grid[row_index]:
-        return 0
+        return False
     for row_list in grid:
         if row_list[col_index] == val:
-            return 0
+            return False
     if check_box(val, row_index, col_index, grid):
-        return val
-    return 0
+        return True
+    return False
 
 def check_box(val, row_index, col_index, grid):
     # Determine which row and column offsets to check for the box a value falls in
