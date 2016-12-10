@@ -11,7 +11,7 @@ def main():
     start_time = time.time()
 
     grid = parse_puzzle(sys.argv[1])
-    solution = solve(grid)
+    solution = algorithm.solve(grid)
 
     print("Solution found after %s" % (time.time() - start_time))
     for row in solution:
@@ -30,9 +30,6 @@ def parse_puzzle(filename):
         exit(1)
 
     return puzzle_grid
-
-def solve(puzzle):
-    return 'stub'
 
 if __name__ == '__main__':
     main()
