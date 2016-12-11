@@ -1,7 +1,7 @@
 import csv
 import sys
 import time
-import algorithm
+import backtrack
 
 def main():
     if len(sys.argv) != 2:
@@ -11,11 +11,16 @@ def main():
     start_time = time.time()
 
     grid = parse_puzzle(sys.argv[1])
-    solution = algorithm.solve(grid)
+    solution = backtrack.solve(grid)
 
     print("Solution found after %s" % (time.time() - start_time))
-    for row in solution:
-        print(row)
+
+    if solution:
+        for row in grid:
+            print(row)
+    else:
+        print('No solution.')
+
 
 def parse_puzzle(filename):
     puzzle_grid = []
