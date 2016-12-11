@@ -1,5 +1,3 @@
-import grid_util
-
 def solve(grid):
     # Keep track of row and column indices
     record = [0, 0]
