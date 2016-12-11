@@ -3,3 +3,4 @@
       due to strtok()
 2. Print solution to console, also print time taken to solve
 3. Write solution to new file
+4. Live-updating solution to see how the grid is changing during the process
