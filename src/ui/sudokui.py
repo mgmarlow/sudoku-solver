@@ -5,8 +5,8 @@ SIDE = 50
 WIDTH = HEIGHT = MARGIN * 2 + SIDE * 9
 
 class SudokuUI (Frame):
-    def __init__(self, parent, game):
-        self.game = game
+    def __init__(self, parent, puzzle):
+        self.puzzle = puzzle
         self.parent = parent
         Frame.__init__(self, parent)
         self.row, self.col = 0, 0
@@ -18,7 +18,7 @@ class SudokuUI (Frame):
         self.canvas = Canvas(self, width=WIDTH, height=HEIGHT)
         self.canvas.pack(fill=BOTH, side=TOP)
         self.__draw_grid()
-        #self.__draw_puzzle()
+        self.__draw_puzzle()
 
     def __draw_grid(self):
         for i in range(10):
@@ -35,3 +35,13 @@ class SudokuUI (Frame):
             x1 = WIDTH - MARGIN
             y1 = MARGIN + i * SIDE
             self.canvas.create_line(x0, y0, x1, y1, fill=color)
+
+    def __draw_puzzle(self):
+        self.canvas.delete('numbers')
+        for i in range(9):
+            for j in range (9):
+                cell = self.puzzle[i][j]
+                if cell != 0:
+                    x = MARGIN + j * SIDE + SIDE / 2
+                    y = MARGIN + i * SIDE + SIDE / 2
+                    self.canvas.create_text(x, y, text=cell, tags='numbers', fill='black')
