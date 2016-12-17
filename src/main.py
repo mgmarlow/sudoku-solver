@@ -1,13 +1,21 @@
 import csv
 import sys
 import time
-import backtrack
+
 import grid_util
+from backtrack import backtrack
+from ui import sudokui
+from tkinter import Tk
+
 
 def main():
     if len(sys.argv) != 2:
-        print("Usage: maingit .py <file.csv>")
+        print("Usage: main.py <file.csv>")
         exit(1)
+
+    #root = Tk()
+    #sudokui.SudokuUI(root, '')
+    #root.mainloop()
 
     start_time = time.time()
 
