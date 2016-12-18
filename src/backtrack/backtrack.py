@@ -12,8 +12,10 @@ def solve(grid):
         if check_proper_position(grid, row, col, num):
             # Attempt number placement
             grid[row][col] = num
+
             if (solve(grid)):
                 return True
+
             # Reset if unsuccessful
             grid[row][col] = 0
 

@@ -2,7 +2,6 @@ import csv
 import sys
 import time
 
-import grid_util
 from backtrack import backtrack
 from ui import sudokui
 from tkinter import Tk
@@ -13,27 +12,21 @@ def main():
         print("Usage: main.py <file.csv>")
         exit(1)
 
-
-
     start_time = time.time()
-
     grid = parse_puzzle(sys.argv[1])
 
     # Draw UI
     root = Tk()
-    sudokui.SudokuUI(root, grid)
-    root.mainloop()
+    window = sudokui.SudokuUI(root, grid)
 
-    # backtrack_solution = backtrack.solve(grid)
-
-    # print("Solution found after %s" % (time.time() - start_time))
-
-    # if backtrack_solution:
-    #     grid_util.write_grid(grid)
-    #     for row in grid:
-    #         print(row)
-    # else:
-    #     print('No solution.')
+    timeDrawn = False
+    while True:
+        root.update_idletasks()
+        root.update()
+        backtrack.solve(grid)
+        if not timeDrawn:
+            window.redraw(grid, round(time.time() - start_time, 10))
+            timeDrawn = True
 
 
 def parse_puzzle(filename):

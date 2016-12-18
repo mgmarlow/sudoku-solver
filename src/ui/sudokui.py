@@ -12,6 +12,11 @@ class SudokuUI (Frame):
         self.row, self.col = 0, 0
         self.__initUI()
 
+    def redraw (self, grid, time):
+        self.parent.title("Sudoku solved in: %fs" % time)
+        self.canvas.delete('numbers')
+        self.__draw_cells(grid)
+
     def __initUI (self):
         self.parent.title('Sudoku')
         self.pack(fill=BOTH, expand=1)
@@ -38,9 +43,12 @@ class SudokuUI (Frame):
 
     def __draw_puzzle(self):
         self.canvas.delete('numbers')
+        self.__draw_cells(self.puzzle)
+
+    def __draw_cells (self, puzzle):
         for i in range(9):
             for j in range (9):
-                cell = self.puzzle[i][j]
+                cell = puzzle[i][j]
                 if cell != 0:
                     x = MARGIN + j * SIDE + SIDE / 2
                     y = MARGIN + i * SIDE + SIDE / 2
