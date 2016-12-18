@@ -19,14 +19,14 @@ def main():
     root = Tk()
     window = sudokui.SudokuUI(root, grid)
 
-    timeDrawn = False
+    time_drawn = False
     while True:
         root.update_idletasks()
         root.update()
         backtrack.solve(grid)
-        if not timeDrawn:
+        if not time_drawn:
             window.redraw(grid, round(time.time() - start_time, 10))
-            timeDrawn = True
+            time_drawn = True
 
 
 def parse_puzzle(filename):
