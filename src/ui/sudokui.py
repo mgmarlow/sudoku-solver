@@ -12,7 +12,7 @@ class SudokuUI (Frame):
         self.row, self.col = 0, 0
         self.__initUI()
 
-    def redraw (self, grid, time):
+    def redraw (self, grid, time=0):
         self.parent.title("Sudoku solved in: %fs" % time)
         self.canvas.delete('numbers')
         self.__draw_cells(grid)

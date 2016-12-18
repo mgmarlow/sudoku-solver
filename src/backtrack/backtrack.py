@@ -1,4 +1,4 @@
-def solve(grid):
+def solve(grid, window, tk):
     # Keep track of row and column indices
     record = [0, 0]
 
@@ -13,7 +13,10 @@ def solve(grid):
             # Attempt number placement
             grid[row][col] = num
 
-            if (solve(grid)):
+            window.redraw(grid)
+            tk.update()
+
+            if (solve(grid, window, tk)):
                 return True
 
             # Reset if unsuccessful

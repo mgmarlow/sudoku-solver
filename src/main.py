@@ -23,7 +23,7 @@ def main():
     while True:
         root.update_idletasks()
         root.update()
-        backtrack.solve(grid)
+        backtrack.solve(grid, window, root)
         if not time_drawn:
             window.redraw(grid, round(time.time() - start_time, 10))
             time_drawn = True
