@@ -1,9 +1,9 @@
 import csv
 import sys
 import time
+import backtrack
+import sudokuui
 
-from backtrack import backtrack
-from ui import sudokui
 from tkinter import Tk
 
 
@@ -17,7 +17,7 @@ def main():
 
     # Draw UI
     root = Tk()
-    window = sudokui.SudokuUI(root, grid)
+    window = sudokuui.SudokuUI(root, grid)
 
     time_drawn = False
     while True:
