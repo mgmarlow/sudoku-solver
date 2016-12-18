@@ -6,11 +6,9 @@ More efficient algorithms may be added in the future.
 
 ## Usage
 
-`main.py` takes in a single `.csv` filename as a command line argument. If the program successfully solves the puzzle, the solution 
-will be displayed in a TK GUI with the time taken to solve in the title.
+`main.py` takes in a single `.csv` filename as a command line argument. The program will open in an external TK window and will continuously update as the puzzle is being solved. Watch in realtime as the backtrack method is used to solve a provided puzzle.
 
-The CSV file should contain 0's to represent blank cells.
-
+The CSV file should contain 0's to represent blank cells. See `easy.csv` and `hard.csv` for examples.
 
 Terminal:
 
